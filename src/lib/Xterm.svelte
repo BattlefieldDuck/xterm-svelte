@@ -5,6 +5,7 @@
 
 	let parent: HTMLElement;
 	export let options: (ITerminalOptions & ITerminalInitOnlyOptions) | undefined = undefined;
+	let props = { ...$$restProps };
 
 	const dispatch = createEventDispatcher<{ load: { terminal: Terminal } }>();
 
@@ -16,4 +17,4 @@
 	});
 </script>
 
-<div bind:this={parent}></div>
+<div class={props.class} style={props.style} bind:this={parent}></div>
