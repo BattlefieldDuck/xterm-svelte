@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Xterm } from '$lib/index.js';
-	import type { ITerminalOptions, ITerminalInitOnlyOptions, Terminal } from '@xterm/xterm';
+	import type { ITerminalOptions, ITerminalInitOnlyOptions, Terminal } from '$lib/index.js';
 
 	let options: ITerminalOptions & ITerminalInitOnlyOptions = {};
 
