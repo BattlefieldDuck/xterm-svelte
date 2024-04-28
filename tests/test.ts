@@ -4,3 +4,9 @@ test('index page has expected h1', async ({ page }) => {
 	await page.goto('/');
 	await expect(page.getByRole('heading', { name: 'Welcome to your library project' })).toBeVisible();
 });
+
+test('Xterm component is visible', async ({ page }) => {
+	await page.goto('/');
+	const xtermComponent = page.locator('.xterm');
+	await expect(xtermComponent).toBeVisible();
+});

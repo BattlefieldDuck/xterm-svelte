@@ -1,58 +1,63 @@
-# create-svelte
+# xterm-svelte
 
-Everything you need to build a Svelte library, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+xterm-svelte is a wrapper for the Xterm.js library, designed to work seamlessly with SvelteKit. This library allows you to embed a fully functional terminal in your SvelteKit application.
 
-Read more about creating a library [in the docs](https://kit.svelte.dev/docs/packaging).
+## Features
 
-## Creating a project
+- Full integration with SvelteKit.
+- Xterm addons is managed in xterm-svelte
+- Continuous package updates: xterm-svelte is regularly updated to ensure compatibility with the latest versions of SvelteKit and Xterm.js.
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Installation
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+To install Xterm-Svelte, run the following command in your project directory:
 
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+npm install xterm-svelte
 ```
 
-Everything inside `src/lib` is part of your library, everything inside `src/routes` can be used as a showcase or preview app.
+## Usage
 
-## Building
+Here's a basic example of how to use xterm-svelte in your SvelteKit application:
 
-To build your library:
+```svelte
+<script lang="ts">
+	import { Xterm } from 'xterm-svelte';
+	import type { ITerminalOptions, ITerminalInitOnlyOptions, Terminal } from 'xterm-svelte';
 
-```bash
-npm run package
+	let options: ITerminalOptions & ITerminalInitOnlyOptions = {};
+
+	async function onLoad(event: CustomEvent<{ terminal: Terminal }>) {
+		console.log('Child component has loaded');
+		const terminal = event.detail.terminal;
+
+		// FitAddon Usage
+		const { FitAddon } = await XtermAddon.FitAddon();
+		const fitAddon = new FitAddon();
+		terminal.loadAddon(fitAddon);
+		fitAddon.fit();
+
+		terminal.write('Hello World');
+	}
+
+    function onData(event: CustomEvent<string>) {
+		const data = event.detail;
+		console.log('onData()', data);
+	}
+
+	function onKey(event: CustomEvent<{ key: string; domEvent: KeyboardEvent }>) {
+		const data = event.detail;
+		console.log('onKey()', data);
+	}
+</script>
+
+<Xterm {options} on:load={onLoad} on:data={onData} on:key={onKey} />
 ```
 
-To create a production version of your showcase app:
+## Contributing
 
-```bash
-npm run build
-```
+We welcome contributions from the community. Please read our contributing guide for more information.
 
-You can preview the production build with `npm run preview`.
+## License
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
-
-## Publishing
-
-Go into the `package.json` and give your package the desired name through the `"name"` option. Also consider adding a `"license"` field and point it to a `LICENSE` file which you can create from a template (one popular option is the [MIT license](https://opensource.org/license/mit/)).
-
-To publish your library to [npm](https://www.npmjs.com):
-
-```bash
-npm publish
-```
+This project is licensed under the MIT License.

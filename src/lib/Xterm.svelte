@@ -1,20 +1,35 @@
 <script lang="ts">
 	import '@xterm/xterm/css/xterm.css';
 	import { onMount, createEventDispatcher } from 'svelte';
-	import type { ITerminalOptions, ITerminalInitOnlyOptions, Terminal } from '@xterm/xterm';
+	import type { ITerminalOptions, ITerminalInitOnlyOptions, XtermEvent } from './index.js';
 
 	let parent: HTMLElement;
-	export let options: (ITerminalOptions & ITerminalInitOnlyOptions) | undefined = undefined;
 	let props = { ...$$restProps };
 
-	const dispatch = createEventDispatcher<{ load: { terminal: Terminal } }>();
+	export let options: (ITerminalOptions & ITerminalInitOnlyOptions) | undefined = undefined;
+
+	const dispatch = createEventDispatcher<XtermEvent>();
 
 	onMount(async () => {
-		let xterm = await import('@xterm/xterm');
-		const terminal = new xterm.Terminal(options);
+		const { Terminal } = await import('@xterm/xterm');
+		const terminal = new Terminal(options);
+
+		terminal.onBell(() => dispatch('bell'));
+		terminal.onBinary((data) => dispatch('binary', data));
+		terminal.onCursorMove(() => dispatch('cursormove'));
+		terminal.onData((data) => dispatch('data', data));
+		terminal.onKey((data) => dispatch('key', data));
+		terminal.onLineFeed(() => dispatch('linefeed'));
+		terminal.onRender((data) => dispatch('render', data));
+		terminal.onWriteParsed(() => dispatch('writeparsed'));
+		terminal.onResize((data) => dispatch('resize', data));
+		terminal.onScroll((data) => dispatch('scroll', data));
+		terminal.onSelectionChange(() => dispatch('selectionchange'));
+		terminal.onTitleChange((data) => dispatch('titlechange', data));
+
 		terminal.open(parent);
 		dispatch('load', { terminal });
 	});
 </script>
 
-<div class={props.class} style={props.style} bind:this={parent}></div>
+<div bind:this={parent} class={props.class} style={props.style}></div>
