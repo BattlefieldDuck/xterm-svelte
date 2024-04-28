@@ -1,6 +1,6 @@
 # xterm-svelte
 
-xterm-svelte is a wrapper for the Xterm.js library, designed to work seamlessly with SvelteKit. This library allows you to embed a fully functional terminal in your SvelteKit application.
+xterm-svelte is a wrapper for the [xterm.js](https://github.com/xtermjs/xterm.js) library, designed to work seamlessly with SvelteKit. This library allows you to embed a fully functional terminal in your SvelteKit application.
 
 ## Features
 
@@ -55,9 +55,12 @@ Here's a basic example of how to use xterm-svelte in your SvelteKit application:
 ```
 
 ## Contributing
+Contributions are welcome! Please feel free to submit pull requests or open issues.
 
-We welcome contributions from the community. Please read our contributing guide for more information.
+![https://github.com/BattlefieldDuck/xterm-svelte/graphs/contributors](https://contrib.rocks/image?repo=BattlefieldDuck/xterm-svelte)
 
 ## License
+xterm-svelte is licensed under the MIT License. See the `LICENSE` file for more details.
 
-This project is licensed under the MIT License.
+## Stargazers over time
+[![Stargazers over time](https://starchart.cc/BattlefieldDuck/xterm-svelte.svg?variant=adaptive)](https://starchart.cc/BattlefieldDuck/xterm-svelte)
