@@ -17,6 +17,8 @@
 		terminal.onKey(({ key }) => {
 			terminal.write(key);
 		});
+
+		terminal.write('Hello World');
 	}
 
 	function onBell() {
