@@ -1,6 +1,11 @@
 # xterm-svelte
 
+[![Node.js Build](https://github.com/BattlefieldDuck/xterm-svelte/actions/workflows/node-build.yml/badge.svg)](https://github.com/BattlefieldDuck/xterm-svelte/actions/workflows/node-build.yml)
+
+
 xterm-svelte is a wrapper for the [xterm.js](https://github.com/xtermjs/xterm.js) library, designed to work seamlessly with SvelteKit. This library allows you to embed a fully functional terminal in your SvelteKit application.
+
+Live Demo: https://xterm-svelte.pages.dev
 
 ## Features
 
@@ -13,7 +18,7 @@ xterm-svelte is a wrapper for the [xterm.js](https://github.com/xtermjs/xterm.js
 To install Xterm-Svelte, run the following command in your project directory:
 
 ```bash
-npm install xterm-svelte
+npm install @battlefieldduck/xterm-svelte
 ```
 
 ## Usage
@@ -22,8 +27,8 @@ Here's a basic example of how to use xterm-svelte in your SvelteKit application:
 
 ```svelte
 <script lang="ts">
-    import { Xterm } from 'xterm-svelte';
-    import type { ITerminalOptions, ITerminalInitOnlyOptions, Terminal } from 'xterm-svelte';
+    import { Xterm } from '@battlefieldduck/xterm-svelte';
+    import type { ITerminalOptions, ITerminalInitOnlyOptions, Terminal } from '@battlefieldduck/xterm-svelte';
 
     let options: ITerminalOptions & ITerminalInitOnlyOptions = {};
 
