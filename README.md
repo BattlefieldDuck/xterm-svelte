@@ -8,18 +8,18 @@
 
 xterm-svelte is a wrapper for the [xterm.js](https://github.com/xtermjs/xterm.js) library, designed to work seamlessly with SvelteKit. This library allows you to embed a fully functional terminal in your SvelteKit application.
 
-Live Demo: https://xterm-svelte.pages.dev
+Check it out: https://xterm-svelte.pages.dev
 
 ## Features
 
 - **Full integration with SvelteKit**
-  
+
   Xterm-Svelte is designed to work seamlessly with SvelteKit, allowing you to easily incorporate terminal functionality into your SvelteKit projects.
-  
+
 - **Xterm addons management**
 
   Xterm addons are managed within Xterm-Svelte, providing a unified and consistent interface for working with Xterm and its addons.
-  
+
 - **Continuous package updates**
 
   Xterm-Svelte is regularly updated to ensure compatibility with the latest versions of SvelteKit and Xterm.js. This means you can always use the latest features and improvements from these libraries in your projects.
@@ -48,8 +48,7 @@ Here's a basic example of how to use xterm-svelte in your SvelteKit application:
         const terminal = event.detail.terminal;
 
         // FitAddon Usage
-        const { FitAddon } = await XtermAddon.FitAddon();
-        const fitAddon = new FitAddon();
+        const fitAddon = new (await XtermAddon.FitAddon()).FitAddon();
         terminal.loadAddon(fitAddon);
         fitAddon.fit();
 

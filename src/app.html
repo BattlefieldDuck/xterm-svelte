@@ -1,12 +1,52 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		%sveltekit.head%
-	</head>
-	<body data-sveltekit-preload-data="hover">
-		<div>%sveltekit.body%</div>
-	</body>
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" href="%sveltekit.assets%/favicon.png" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	%sveltekit.head%
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+</head>
+
+<body data-sveltekit-preload-data="hover">
+	<div>%sveltekit.body%</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+	<script>
+		const clipboard = FlowbiteInstances.getInstance('CopyClipboard', 'npm-install-copy-button');
+		const tooltip = FlowbiteInstances.getInstance('Tooltip', 'tooltip-copy-npm-install-copy-button');
+
+		const $defaultIcon = document.getElementById('default-icon');
+		const $successIcon = document.getElementById('success-icon');
+
+		const $defaultTooltipMessage = document.getElementById('default-tooltip-message');
+		const $successTooltipMessage = document.getElementById('success-tooltip-message');
+
+		clipboard.updateOnCopyCallback((clipboard) => {
+			showSuccess();
+
+			// reset to default state
+			setTimeout(() => {
+				resetToDefault();
+			}, 2000);
+		})
+
+		const showSuccess = () => {
+			$defaultIcon.classList.add('hidden');
+			$successIcon.classList.remove('hidden');
+			$defaultTooltipMessage.classList.add('hidden');
+			$successTooltipMessage.classList.remove('hidden');
+			tooltip.show();
+		}
+
+		const resetToDefault = () => {
+			$defaultIcon.classList.remove('hidden');
+			$successIcon.classList.add('hidden');
+			$defaultTooltipMessage.classList.remove('hidden');
+			$successTooltipMessage.classList.add('hidden');
+			tooltip.hide();
+		}
+	</script>
+</body>
+
 </html>

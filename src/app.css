@@ -1,0 +1,5 @@
+.xterm .xterm-viewport {
+    scrollbar-color: #999999 #000000;
+    /* dark thumb and track */
+    scrollbar-width: thin;
+}
