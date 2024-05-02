@@ -1,17 +1,16 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 
+	let copyClipboard: HTMLElement;
+	let copyButton: HTMLElement;
 	let defaultIcon: HTMLElement;
 	let successIcon: HTMLElement;
 	let defaultTooltipMessage: HTMLElement;
 	let successTooltipMessage: HTMLElement;
 
 	onMount(() => {
-		const clipboard = FlowbiteInstances.getInstance('CopyClipboard', 'npm-install-copy-button');
-		const tooltip = FlowbiteInstances.getInstance(
-			'Tooltip',
-			'tooltip-copy-npm-install-copy-button'
-		);
+		const clipboard = FlowbiteInstances.getInstance('CopyClipboard', copyClipboard.id);
+		const tooltip = FlowbiteInstances.getInstance('Tooltip', copyButton.id);
 
 		clipboard.updateOnCopyCallback(() => {
 			showSuccess();
@@ -44,6 +43,7 @@
 	<div class="relative">
 		<label for="npm-install-copy-button" class="sr-only">Label</label>
 		<input
+			bind:this={copyClipboard}
 			id="npm-install-copy-button"
 			type="text"
 			class="col-span-6 bg-gray-50 border border-gray-300 text-gray-500 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-900 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-100 dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -88,6 +88,7 @@
 			</span>
 		</button>
 		<div
+			bind:this={copyButton}
 			id="tooltip-copy-npm-install-copy-button"
 			role="tooltip"
 			class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
