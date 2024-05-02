@@ -1,18 +1,17 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 
+	let defaultIcon: HTMLElement;
+	let successIcon: HTMLElement;
+	let defaultTooltipMessage: HTMLElement;
+	let successTooltipMessage: HTMLElement;
+
 	onMount(() => {
 		const clipboard = FlowbiteInstances.getInstance('CopyClipboard', 'npm-install-copy-button');
 		const tooltip = FlowbiteInstances.getInstance(
 			'Tooltip',
 			'tooltip-copy-npm-install-copy-button'
 		);
-
-		const $defaultIcon = document.getElementById('default-icon');
-		const $successIcon = document.getElementById('success-icon');
-
-		const $defaultTooltipMessage = document.getElementById('default-tooltip-message');
-		const $successTooltipMessage = document.getElementById('success-tooltip-message');
 
 		clipboard.updateOnCopyCallback(() => {
 			showSuccess();
@@ -24,18 +23,18 @@
 		});
 
 		const showSuccess = () => {
-			$defaultIcon?.classList.add('hidden');
-			$successIcon?.classList.remove('hidden');
-			$defaultTooltipMessage?.classList.add('hidden');
-			$successTooltipMessage?.classList.remove('hidden');
+			defaultIcon.classList.add('hidden');
+			successIcon.classList.remove('hidden');
+			defaultTooltipMessage.classList.add('hidden');
+			successTooltipMessage.classList.remove('hidden');
 			tooltip.show();
 		};
 
 		const resetToDefault = () => {
-			$defaultIcon?.classList.remove('hidden');
-			$successIcon?.classList.add('hidden');
-			$defaultTooltipMessage?.classList.remove('hidden');
-			$successTooltipMessage?.classList.add('hidden');
+			defaultIcon.classList.remove('hidden');
+			successIcon.classList.add('hidden');
+			defaultTooltipMessage.classList.remove('hidden');
+			successTooltipMessage.classList.add('hidden');
 			tooltip.hide();
 		};
 	});
@@ -57,7 +56,7 @@
 			data-tooltip-target="tooltip-copy-npm-install-copy-button"
 			class="absolute end-2 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg p-2 inline-flex items-center justify-center"
 		>
-			<span id="default-icon">
+			<span bind:this={defaultIcon}>
 				<svg
 					class="w-3.5 h-3.5"
 					aria-hidden="true"
@@ -70,7 +69,7 @@
 					/>
 				</svg>
 			</span>
-			<span id="success-icon" class="hidden inline-flex items-center">
+			<span bind:this={successIcon} class="hidden inline-flex items-center">
 				<svg
 					class="w-3.5 h-3.5 text-blue-700 dark:text-blue-500"
 					aria-hidden="true"
@@ -93,8 +92,8 @@
 			role="tooltip"
 			class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
 		>
-			<span id="default-tooltip-message">Copy to clipboard</span>
-			<span id="success-tooltip-message" class="hidden">Copied!</span>
+			<span bind:this={defaultTooltipMessage}>Copy to clipboard</span>
+			<span bind:this={successTooltipMessage} class="hidden">Copied!</span>
 			<div class="tooltip-arrow" data-popper-arrow></div>
 		</div>
 	</div>
