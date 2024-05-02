@@ -8,6 +8,9 @@ declare global {
 		// interface PageState {}
 		// interface Platform {}
 	}
+
+	declare var hljs: any;
+	declare var FlowbiteInstances: any;
 }
 
-export {};
+export { };
