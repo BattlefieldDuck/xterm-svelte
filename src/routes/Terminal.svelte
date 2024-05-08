@@ -6,7 +6,6 @@
 		Terminal,
 		FitAddon
 	} from '$lib/index.js';
-	import { onMount } from 'svelte';
 
 	let handleResize: () => void;
 	let runCommand: () => void;
@@ -37,13 +36,6 @@
 			isCommandRunning = false;
 		};
 	}
-
-	onMount(() => {
-		return () => {
-			window.removeEventListener('resize', handleResize);
-		};
-	});
-
 	async function onLoad(event: CustomEvent<{ terminal: Terminal }>) {
 		const terminal = event.detail.terminal;
 		terminal.write('C:\\Users\\Administrator>ping 1.1.1.1');
@@ -55,7 +47,6 @@
 		fitAddon.fit();
 
 		handleResize = createResizeHandler(fitAddon);
-		window.addEventListener('resize', handleResize);
 	}
 
 	function onKey(event: CustomEvent<{ key: string; domEvent: KeyboardEvent }>) {
@@ -75,6 +66,8 @@
 		cursorStyle: 'bar'
 	};
 </script>
+
+<svelte:window on:resize={handleResize} />
 
 <div
 	class="p-1 block border border-gray-200 rounded-lg border-gray-700 shadow"

@@ -1,49 +1,38 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-
-	let copyClipboard: HTMLElement;
 	let copyButton: HTMLElement;
 	let defaultIcon: HTMLElement;
 	let successIcon: HTMLElement;
 	let defaultTooltipMessage: HTMLElement;
 	let successTooltipMessage: HTMLElement;
 
-	onMount(() => {
-		const clipboard = FlowbiteInstances.getInstance('CopyClipboard', copyClipboard.id);
+	const onCopyButtonClick = () => {
+		showSuccess();
+		setTimeout(() => resetToDefault(), 2000);
+	};
+
+	const showSuccess = () => {
+		defaultIcon.classList.add('hidden');
+		successIcon.classList.remove('hidden');
+		defaultTooltipMessage.classList.add('hidden');
+		successTooltipMessage.classList.remove('hidden');
 		const tooltip = FlowbiteInstances.getInstance('Tooltip', copyButton.id);
+		tooltip.show();
+	};
 
-		clipboard.updateOnCopyCallback(() => {
-			showSuccess();
-
-			// reset to default state
-			setTimeout(() => {
-				resetToDefault();
-			}, 2000);
-		});
-
-		const showSuccess = () => {
-			defaultIcon.classList.add('hidden');
-			successIcon.classList.remove('hidden');
-			defaultTooltipMessage.classList.add('hidden');
-			successTooltipMessage.classList.remove('hidden');
-			tooltip.show();
-		};
-
-		const resetToDefault = () => {
-			defaultIcon.classList.remove('hidden');
-			successIcon.classList.add('hidden');
-			defaultTooltipMessage.classList.remove('hidden');
-			successTooltipMessage.classList.add('hidden');
-			tooltip.hide();
-		};
-	});
+	const resetToDefault = () => {
+		defaultIcon.classList.remove('hidden');
+		successIcon.classList.add('hidden');
+		defaultTooltipMessage.classList.remove('hidden');
+		successTooltipMessage.classList.add('hidden');
+		const tooltip = FlowbiteInstances.getInstance('Tooltip', copyButton.id);
+		tooltip.hide();
+	};
 </script>
 
 <div class="mb-10 w-full max-w-[24rem] dark">
 	<div class="relative">
 		<label for="npm-install-copy-button" class="sr-only">Label</label>
 		<input
-			bind:this={copyClipboard}
 			id="npm-install-copy-button"
 			type="text"
 			class="col-span-6 bg-gray-50 border border-gray-300 text-gray-500 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-900 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-100 dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -52,6 +41,7 @@
 			readonly
 		/>
 		<button
+			on:click={onCopyButtonClick}
 			data-copy-to-clipboard-target="npm-install-copy-button"
 			data-tooltip-target="tooltip-copy-npm-install-copy-button"
 			class="absolute end-2 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg p-2 inline-flex items-center justify-center"
