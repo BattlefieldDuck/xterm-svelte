@@ -2,7 +2,13 @@
 	"name": "@battlefieldduck/xterm-svelte",
 	"version": "1.0.0",
 	"description": "A SvelteKit wrapper for Xterm.js, enabling terminal embedding in SvelteKit apps, managing Xterm addons, and providing seamless updates with the latest SvelteKit and Xterm.js versions.",
-	"keywords": ["svelte", "xterm", "xterm-js", "sveltekit", "xterm-svelte"],
+	"keywords": [
+		"svelte",
+		"xterm",
+		"xterm-js",
+		"sveltekit",
+		"xterm-svelte"
+	],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/BattlefieldDuck/xterm-svelte.git"
