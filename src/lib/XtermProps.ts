@@ -1,5 +1,6 @@
 import type { Terminal } from "@xterm/xterm";
 import type { ITerminalOptions, ITerminalInitOnlyOptions } from './index.js';
+import type { HTMLAttributes } from "svelte/elements";
 
 export type XtermProps = {
     options?: ITerminalOptions & ITerminalInitOnlyOptions;
@@ -100,4 +101,4 @@ export type XtermProps = {
      * @returns an `IDisposable` to stop listening.
      */
     onLoad?: (terminal: Terminal) => void;
-};
+} & HTMLAttributes<HTMLDivElement>;

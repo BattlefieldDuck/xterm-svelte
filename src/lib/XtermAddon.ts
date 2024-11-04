@@ -40,14 +40,15 @@ export class XtermAddon {
      *
      * @returns A promise that resolves to the 'ligatures' addon module.
      */
-    static LigaturesAddon = async () => {
-        if (typeof process === 'undefined' || process.versions == null || process.versions.node == null) {
-            // This is not a Node.js environment
-            throw new Error('This module can only be imported in a Node.js environment');
-        }
+    // static LigaturesAddon = async () => {
+    //     // @ts-ignore
+    //     if (typeof process === 'undefined' || process.versions == null || process.versions.node == null) {
+    //         // This is not a Node.js environment
+    //         throw new Error('This module can only be imported in a Node.js environment');
+    //     }
 
-        return await import('@xterm/addon-ligatures');
-    }
+    //     return await import('@xterm/addon-ligatures');
+    // }
 
     /**
      * Dynamically imports the 'search' addon from `@xterm/addon-search`.
