@@ -1,9 +1,9 @@
 <script lang="ts">
-	let copyButton: HTMLElement;
-	let defaultIcon: HTMLElement;
-	let successIcon: HTMLElement;
-	let defaultTooltipMessage: HTMLElement;
-	let successTooltipMessage: HTMLElement;
+	let copyButton = $state<HTMLElement>();
+	let defaultIcon = $state<HTMLElement>();
+	let successIcon = $state<HTMLElement>();
+	let defaultTooltipMessage = $state<HTMLElement>();
+	let successTooltipMessage = $state<HTMLElement>();
 
 	const onCopyButtonClick = () => {
 		showSuccess();
@@ -11,27 +11,29 @@
 	};
 
 	const showSuccess = () => {
-		defaultIcon.classList.add('hidden');
-		successIcon.classList.remove('hidden');
-		defaultTooltipMessage.classList.add('hidden');
-		successTooltipMessage.classList.remove('hidden');
-		const tooltip = FlowbiteInstances.getInstance('Tooltip', copyButton.id);
+		defaultIcon?.classList.add('hidden');
+		successIcon?.classList.remove('hidden');
+		defaultTooltipMessage?.classList.add('hidden');
+		successTooltipMessage?.classList.remove('hidden');
+		const tooltip = FlowbiteInstances.getInstance('Tooltip', copyButton?.id);
 		tooltip.show();
 	};
 
 	const resetToDefault = () => {
-		defaultIcon.classList.remove('hidden');
-		successIcon.classList.add('hidden');
-		defaultTooltipMessage.classList.remove('hidden');
-		successTooltipMessage.classList.add('hidden');
-		const tooltip = FlowbiteInstances.getInstance('Tooltip', copyButton.id);
+		defaultIcon?.classList.remove('hidden');
+		successIcon?.classList.add('hidden');
+		defaultTooltipMessage?.classList.remove('hidden');
+		successTooltipMessage?.classList.add('hidden');
+		const tooltip = FlowbiteInstances.getInstance('Tooltip', copyButton?.id);
 		tooltip.hide();
 	};
 </script>
 
 <div class="mb-10 w-full max-w-[24rem] dark">
 	<div class="relative">
-		<label for="npm-install-copy-button" class="sr-only">Label</label>
+		<label id="npm-install-label" for="npm-install-copy-button" class="sr-only">
+			Copy npm install command
+		</label>
 		<input
 			id="npm-install-copy-button"
 			type="text"
@@ -41,10 +43,11 @@
 			readonly
 		/>
 		<button
-			on:click={onCopyButtonClick}
+			onclick={onCopyButtonClick}
 			data-copy-to-clipboard-target="npm-install-copy-button"
 			data-tooltip-target="tooltip-copy-npm-install-copy-button"
 			class="absolute end-2 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg p-2 inline-flex items-center justify-center"
+			aria-labelledby="npm-install-label"
 		>
 			<span bind:this={defaultIcon}>
 				<svg

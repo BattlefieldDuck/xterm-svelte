@@ -2,8 +2,10 @@
 	import '../app.css';
 	import Footer from './Footer.svelte';
 	import Navbar from './Navbar.svelte';
+
+	let { children } = $props();
 </script>
 
 <Navbar />
-<slot />
+{@render children?.()}
 <Footer />

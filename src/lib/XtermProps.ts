@@ -1,17 +1,13 @@
 import type { Terminal } from "@xterm/xterm";
+import type { ITerminalOptions, ITerminalInitOnlyOptions } from './index.js';
 
-export interface XtermEvent {
-    /**
-     * Adds an event listener for when the terminal is loaded.
-     * @returns an `IDisposable` to stop listening.
-     */
-    load: { terminal: Terminal }
-
+export type XtermProps = {
+    options?: ITerminalOptions & ITerminalInitOnlyOptions;
     /**
      * Adds an event listener for when the bell is triggered.
      * @returns an `IDisposable` to stop listening.
      */
-    bell: void
+    onBell?: () => void;
 
     /**
      * Adds an event listener for when a binary event fires. This is used to
@@ -22,13 +18,13 @@ export interface XtermEvent {
      * binary data, e.g. `pty.write(Buffer.from(data, 'binary'))`.
      * @returns an `IDisposable` to stop listening.
      */
-    binary: string
+    onBinary?: (data: string) => void;
 
     /**
      * Adds an event listener for the cursor moves.
      * @returns an `IDisposable` to stop listening.
      */
-    cursormove: void
+    onCursorMove?: () => void;
 
     /**
      * Adds an event listener for when a data event fires. This happens for
@@ -37,7 +33,7 @@ export interface XtermEvent {
      * on to the backing pty.
      * @returns an `IDisposable` to stop listening.
      */
-    data: string
+    onData?: (data: string) => void;
 
     /**
      * Adds an event listener for when a key is pressed. The event value
@@ -45,13 +41,13 @@ export interface XtermEvent {
      * DOM event that triggered it.
      * @returns an `IDisposable` to stop listening.
      */
-    key: { key: string, domEvent: KeyboardEvent }
+    onKey?: (data: { key: string; domEvent: KeyboardEvent }) => void;
 
     /**
      * Adds an event listener for when a line feed is added.
      * @returns an `IDisposable` to stop listening.
      */
-    linefeed: void
+    onLineFeed?: () => void;
 
     /**
      * Adds an event listener for when rows are rendered. The event value
@@ -59,7 +55,7 @@ export interface XtermEvent {
      * to `Terminal.rows - 1`).
      * @returns an `IDisposable` to stop listening.
      */
-    render: { start: number, end: number }
+    onRender?: (data: { start: number; end: number }) => void;
 
     /**
      * Adds an event listener for when data has been parsed by the terminal,
@@ -70,32 +66,38 @@ export interface XtermEvent {
      * that this can fire when there are still writes pending if there is a lot
      * of data.
      */
-    writeparsed: void
+    onWriteParsed?: () => void;
 
     /**
      * Adds an event listener for when the terminal is resized. The event value
      * contains the new size.
      * @returns an `IDisposable` to stop listening.
      */
-    resize: { cols: number, rows: number }
+    onResize?: (data: { cols: number; rows: number }) => void;
 
     /**
      * Adds an event listener for when a scroll occurs. The event value is the
      * new position of the viewport.
      * @returns an `IDisposable` to stop listening.
      */
-    scroll: number
+    onScroll?: (data: number) => void;
 
     /**
      * Adds an event listener for when a selection change occurs.
      * @returns an `IDisposable` to stop listening.
      */
-    selectionchange: void
+    onSelectionChange?: () => void;
 
     /**
      * Adds an event listener for when an OSC 0 or OSC 2 title change occurs.
      * The event value is the new title.
      * @returns an `IDisposable` to stop listening.
      */
-    titlechange: string
-}
+    onTitleChange?: (data: string) => void;
+
+    /**
+     * Adds an event listener for when the terminal is loaded.
+     * @returns an `IDisposable` to stop listening.
+     */
+    onLoad?: (terminal: Terminal) => void;
+};
