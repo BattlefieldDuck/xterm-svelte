@@ -6,6 +6,7 @@ This section outlines the versions of our project that are currently receiving s
 
 | Version | Supported          |
 | ------- | ------------------ |
+| 2.x.x   | :white_check_mark: |
 | 1.x.x   | :white_check_mark: |
 
 ## Reporting a Vulnerability
