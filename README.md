@@ -12,10 +12,10 @@ Check it out: https://xterm-svelte.pages.dev
 
 ## Version Compatibility
 
-| Version       | Svelte Version |
-|---------------|--------------- |
-| 1.0.0 and up  | Svelte 4       |
-| 2.0.0 and up  | Svelte 5       |
+| Version | Svelte Version | Branch                                                                    | Demonstration                          |
+| ------- | -------------- | ------------------------------------------------------------------------- | -------------------------------------- |
+| 2.x.x   | Svelte 5       | [`main`](https://github.com/BattlefieldDuck/xterm-svelte)                 | https://xterm-svelte.pages.dev         |
+| 1.x.x   | Svelte 4       | [`svelte4`](https://github.com/BattlefieldDuck/xterm-svelte/tree/svelte4) | https://svelte4.xterm-svelte.pages.dev |
 
 ## Features
 
