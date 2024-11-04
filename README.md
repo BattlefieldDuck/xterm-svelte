@@ -3,8 +3,11 @@
 <img align="right" width="100" height="100" src="https://github.com/BattlefieldDuck/xterm-svelte/assets/29337428/e1055940-ae66-48b5-9a1f-1965949b5757">
 
 [![Node.js Build](https://github.com/BattlefieldDuck/xterm-svelte/actions/workflows/node-build.yml/badge.svg)](https://github.com/BattlefieldDuck/xterm-svelte/actions/workflows/node-build.yml)
+![NPM Type Definitions](https://img.shields.io/npm/types/%40battlefieldduck%2Fxterm-svelte)
 [![NPM Version](https://img.shields.io/npm/v/%40battlefieldduck%2Fxterm-svelte)](https://www.npmjs.com/package/@battlefieldduck/xterm-svelte)
 ![NPM Downloads](https://img.shields.io/npm/dw/%40battlefieldduck%2Fxterm-svelte)
+![NPM Downloads](https://img.shields.io/npm/d18m/%40battlefieldduck%2Fxterm-svelte)
+![NPM License](https://img.shields.io/npm/l/%40battlefieldduck%2Fxterm-svelte)
 
 xterm-svelte is a wrapper for the [xterm.js](https://github.com/xtermjs/xterm.js) library, designed to work seamlessly with SvelteKit. This library allows you to embed a fully functional terminal in your SvelteKit application.
 
