@@ -23,6 +23,35 @@
 				xterm-svelte
 			</span>
 		</h1>
+
+		<div class="mb-6 flex items-center justify-center gap-2 flex-wrap">
+			<a href="https://github.com/BattlefieldDuck/xterm-svelte/actions/workflows/node-build.yml">
+				<img
+					src="https://github.com/BattlefieldDuck/xterm-svelte/actions/workflows/node-build.yml/badge.svg"
+					alt="Node.js Build"
+				/>
+			</a>
+			<img
+				src="https://img.shields.io/npm/types/%40battlefieldduck%2Fxterm-svelte"
+				alt="NPM Type Definitions"
+			/>
+			<a href="https://www.npmjs.com/package/@battlefieldduck/xterm-svelte">
+				<img
+					src="https://img.shields.io/npm/v/%40battlefieldduck%2Fxterm-svelte"
+					alt="NPM Version"
+				/>
+			</a>
+			<img
+				src="https://img.shields.io/npm/dw/%40battlefieldduck%2Fxterm-svelte"
+				alt="NPM Downloads"
+			/>
+			<img
+				src="https://img.shields.io/npm/d18m/%40battlefieldduck%2Fxterm-svelte"
+				alt="NPM Downloads"
+			/>
+			<img src="https://img.shields.io/npm/l/%40battlefieldduck%2Fxterm-svelte" alt="NPM License" />
+		</div>
+
 		<p class="mb-6 text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">
 			A SvelteKit wrapper for
 			<a

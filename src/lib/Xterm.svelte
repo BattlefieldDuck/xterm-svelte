@@ -19,7 +19,8 @@
 		onScroll,
 		onSelectionChange,
 		onTitleChange,
-		onLoad
+		onLoad,
+		...rest
 	}: XtermProps = $props();
 
 	onMount(async () => {
@@ -48,4 +49,4 @@
 	});
 </script>
 
-<div bind:this={parent}></div>
+<div bind:this={parent} {...rest}></div>
