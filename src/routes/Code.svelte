@@ -10,9 +10,8 @@
 		fontFamily: 'Consolas'
 	};
 
-	async function onLoad(event: CustomEvent<{ terminal: Terminal }>) {
+	async function onLoad(terminal: Terminal) {
 		console.log('Child component has loaded');
-		const terminal = event.detail.terminal;
 
 		// FitAddon Usage
 		const fitAddon = new (await XtermAddon.FitAddon()).FitAddon();
@@ -22,15 +21,13 @@
 		terminal.write('Hello World');
 	}
 
-	function onData(event: CustomEvent<string>) {
-		const data = event.detail;
+	function onData(data: string) {
 		console.log('onData()', data);
 	}
 
-	function onKey(event: CustomEvent<{ key: string; domEvent: KeyboardEvent }>) {
-		const data = event.detail;
+	function onKey(data: { key: string; domEvent: KeyboardEvent }) {
 		console.log('onKey()', data);
 	}
 </script>
 
-<Xterm {options} on:load={onLoad} on:data={onData} on:key={onKey} />
+<Xterm {options} {onLoad} {onData} {onKey} />

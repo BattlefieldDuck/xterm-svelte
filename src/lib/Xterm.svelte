@@ -1,35 +1,51 @@
 <script lang="ts">
 	import '@xterm/xterm/css/xterm.css';
-	import { onMount, createEventDispatcher } from 'svelte';
-	import type { ITerminalOptions, ITerminalInitOnlyOptions, XtermEvent } from './index.js';
+	import { onMount } from 'svelte';
+	import type { XtermProps } from './index.js';
 
-	let parent: HTMLElement;
-	let props = { ...$$restProps };
+	let parent = $state<HTMLElement>();
 
-	export let options: (ITerminalOptions & ITerminalInitOnlyOptions) | undefined = undefined;
-
-	const dispatch = createEventDispatcher<XtermEvent>();
+	let {
+		options,
+		onBell,
+		onBinary,
+		onCursorMove,
+		onData,
+		onKey,
+		onLineFeed,
+		onRender,
+		onWriteParsed,
+		onResize,
+		onScroll,
+		onSelectionChange,
+		onTitleChange,
+		onLoad
+	}: XtermProps = $props();
 
 	onMount(async () => {
 		const { Terminal } = await import('@xterm/xterm');
 		const terminal = new Terminal(options);
 
-		terminal.onBell(() => dispatch('bell'));
-		terminal.onBinary((data) => dispatch('binary', data));
-		terminal.onCursorMove(() => dispatch('cursormove'));
-		terminal.onData((data) => dispatch('data', data));
-		terminal.onKey((data) => dispatch('key', data));
-		terminal.onLineFeed(() => dispatch('linefeed'));
-		terminal.onRender((data) => dispatch('render', data));
-		terminal.onWriteParsed(() => dispatch('writeparsed'));
-		terminal.onResize((data) => dispatch('resize', data));
-		terminal.onScroll((data) => dispatch('scroll', data));
-		terminal.onSelectionChange(() => dispatch('selectionchange'));
-		terminal.onTitleChange((data) => dispatch('titlechange', data));
+		terminal.onBell(() => onBell?.());
+		terminal.onBinary((data) => onBinary?.(data));
+		terminal.onCursorMove(() => onCursorMove?.());
+		terminal.onData((data) => onData?.(data));
+		terminal.onKey((data) => onKey?.(data));
+		terminal.onLineFeed(() => onLineFeed?.());
+		terminal.onRender((data) => onRender?.(data));
+		terminal.onWriteParsed(() => onWriteParsed?.());
+		terminal.onResize((data) => onResize?.(data));
+		terminal.onScroll((data) => onScroll?.(data));
+		terminal.onSelectionChange(() => onSelectionChange?.());
+		terminal.onTitleChange((data) => onTitleChange?.(data));
 
-		terminal.open(parent);
-		dispatch('load', { terminal });
+		if (parent) {
+			terminal.open(parent);
+			onLoad?.(terminal);
+		} else {
+			console.error('[xterm-svelte] Parent element not found');
+		}
 	});
 </script>
 
-<div bind:this={parent} class={props.class} style={props.style}></div>
+<div bind:this={parent}></div>

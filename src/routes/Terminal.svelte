@@ -36,8 +36,7 @@
 			isCommandRunning = false;
 		};
 	}
-	async function onLoad(event: CustomEvent<{ terminal: Terminal }>) {
-		const terminal = event.detail.terminal;
+	async function onLoad(terminal: Terminal) {
 		terminal.write('C:\\Users\\Administrator>ping 1.1.1.1');
 		runCommand = runCommandHandler(terminal);
 
@@ -49,10 +48,8 @@
 		handleResize = createResizeHandler(fitAddon);
 	}
 
-	function onKey(event: CustomEvent<{ key: string; domEvent: KeyboardEvent }>) {
-		const { domEvent } = event.detail;
-
-		if (domEvent.key == 'Enter' && !isCommandRunning) {
+	function onKey(event: { key: string; domEvent: KeyboardEvent }) {
+		if (event.domEvent.key == 'Enter' && !isCommandRunning) {
 			runCommand();
 		}
 	}
@@ -67,11 +64,11 @@
 	};
 </script>
 
-<svelte:window on:resize={handleResize} />
+<svelte:window onresize={handleResize} />
 
 <div
 	class="p-1 block border border-gray-200 rounded-lg border-gray-700 shadow"
 	style="background-color:{options.theme?.background}"
 >
-	<Xterm {options} on:load={onLoad} on:key={onKey} />
+	<Xterm {options} {onLoad} {onKey} />
 </div>
