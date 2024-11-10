@@ -1,6 +1,6 @@
 {
 	"name": "@battlefieldduck/xterm-svelte",
-	"version": "2.0.0",
+	"version": "2.0.1",
 	"description": "A SvelteKit wrapper for Xterm.js, enabling terminal embedding in SvelteKit apps, managing Xterm addons, and providing seamless updates with the latest SvelteKit and Xterm.js versions.",
 	"keywords": [
 		"svelte",
