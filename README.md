@@ -20,6 +20,8 @@ Check it out: https://xterm-svelte.pages.dev
 | 2.x.x   | Svelte 5       | [`main`](https://github.com/BattlefieldDuck/xterm-svelte)                 | https://xterm-svelte.pages.dev         |
 | 1.x.x   | Svelte 4       | [`svelte4`](https://github.com/BattlefieldDuck/xterm-svelte/tree/svelte4) | https://svelte4.xterm-svelte.pages.dev |
 
+For details on migrating from version 1.x.x to 2.x.x, refer to the [Migration Guide](https://github.com/BattlefieldDuck/xterm-svelte/releases/tag/2.0.0).
+
 ## Features
 
 - **Full integration with SvelteKit**
