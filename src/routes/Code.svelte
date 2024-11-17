@@ -6,11 +6,13 @@
 		Terminal
 	} from '@battlefieldduck/xterm-svelte';
 
+	let terminal: Terminal;
+
 	let options: ITerminalOptions & ITerminalInitOnlyOptions = {
 		fontFamily: 'Consolas'
 	};
 
-	async function onLoad(terminal: Terminal) {
+	async function onLoad() {
 		console.log('Child component has loaded');
 
 		// FitAddon Usage
@@ -30,4 +32,4 @@
 	}
 </script>
 
-<Xterm {options} {onLoad} {onData} {onKey} />
+<Xterm bind:terminal {options} {onLoad} {onData} {onKey} />

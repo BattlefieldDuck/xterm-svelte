@@ -3,7 +3,16 @@ import type { ITerminalOptions, ITerminalInitOnlyOptions } from './index.js';
 import type { HTMLAttributes } from "svelte/elements";
 
 export type XtermProps = {
+    /**
+     * Represents an xterm.js terminal.
+     */
+    terminal?: Terminal;
+
+    /**
+     * An object containing options for the terminal.
+     */
     options?: ITerminalOptions & ITerminalInitOnlyOptions;
+
     /**
      * Adds an event listener for when the bell is triggered.
      * @returns an `IDisposable` to stop listening.

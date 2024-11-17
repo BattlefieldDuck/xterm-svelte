@@ -10,7 +10,7 @@
 </script>
 
 <svelte:head>
-	<title>Xterm.js with SvelteKit</title>
+	<title>Xterm Svelte</title>
 </svelte:head>
 
 <div class="container mx-auto px-2 py-12">
@@ -20,7 +20,7 @@
 		>
 			Welcome to
 			<span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">
-				xterm-svelte
+				Xterm Svelte
 			</span>
 		</h1>
 

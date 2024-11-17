@@ -6,6 +6,7 @@
 	let parent = $state<HTMLElement>();
 
 	let {
+		terminal = $bindable(),
 		options,
 		onBell,
 		onBinary,
@@ -25,8 +26,8 @@
 
 	onMount(async () => {
 		const { Terminal } = await import('@xterm/xterm');
-		const terminal = new Terminal(options);
 
+		terminal = new Terminal(options);
 		terminal.onBell(() => onBell?.());
 		terminal.onBinary((data) => onBinary?.(data));
 		terminal.onCursorMove(() => onCursorMove?.());

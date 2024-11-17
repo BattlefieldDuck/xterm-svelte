@@ -1,4 +1,4 @@
-# xterm-svelte
+# Xterm Svelte
 
 <img align="right" width="100" height="100" src="https://github.com/BattlefieldDuck/xterm-svelte/assets/29337428/e1055940-ae66-48b5-9a1f-1965949b5757">
 
@@ -55,11 +55,13 @@ Here's a basic example of how to use xterm-svelte in your SvelteKit application:
 		Terminal
 	} from '@battlefieldduck/xterm-svelte';
 
+	let terminal: Terminal;
+
 	let options: ITerminalOptions & ITerminalInitOnlyOptions = {
 		fontFamily: 'Consolas'
 	};
 
-	async function onLoad(terminal: Terminal) {
+	async function onLoad() {
 		console.log('Child component has loaded');
 
 		// FitAddon Usage
@@ -79,8 +81,24 @@ Here's a basic example of how to use xterm-svelte in your SvelteKit application:
 	}
 </script>
 
-<Xterm {options} {onLoad} {onData} {onKey} />
+<Xterm bind:terminal {options} {onLoad} {onData} {onKey} />
 ```
+
+## FAQ
+
+### When should I use `onLoad()`?
+
+The `onLoad()` function fires when the xterm terminal is first initialized. You can use this function to perform actions such as initializing xterm addons.
+
+### Why is the `terminal` undefined?
+
+One possible cause is that you called the `terminal` function before it was initialized. For example, if you run the `terminal` function in the `onMount` function without wrapping it with `if (terminal !== undefined)`, it can lead to this issue.
+
+## Real-world uses
+
+- [Thymis](thymis.io): Thymis is an open-source project that aims to provide a seamless and secure IoT device management solution.
+With Thymis, users can easily configure and manage their devices running on the NixOS operating system.
+- [And much more...](https://github.com/BattlefieldDuck/xterm-svelte/network/dependents)
 
 ## Contributing
 Contributions are welcome! Please feel free to submit pull requests or open issues.
