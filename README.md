@@ -96,7 +96,7 @@ One possible cause is that you called the `terminal` function before it was init
 
 ## Real-world uses
 
-- [Thymis](thymis.io): Thymis is an open-source project that aims to provide a seamless and secure IoT device management solution.
+- [Thymis](https://thymis.io): Thymis is an open-source project that aims to provide a seamless and secure IoT device management solution.
 With Thymis, users can easily configure and manage their devices running on the NixOS operating system.
 - [And much more...](https://github.com/BattlefieldDuck/xterm-svelte/network/dependents)
 
