@@ -1,12 +1,12 @@
 <script lang="ts">
 	import '@xterm/xterm/css/xterm.css';
 	import { onMount } from 'svelte';
-	import type { XtermProps } from './index.js';
+	import type { Terminal, XtermProps } from './index.js';
 
 	let parent = $state<HTMLElement>();
 
 	let {
-		terminal = $bindable(),
+		terminal = $bindable<Terminal>(),
 		options,
 		onBell,
 		onBinary,
@@ -25,7 +25,7 @@
 	}: XtermProps = $props();
 
 	onMount(async () => {
-		const { Terminal } = await import('@xterm/xterm');
+		const Terminal = (await import('@xterm/xterm')).Terminal;
 
 		terminal = new Terminal(options);
 		terminal.onBell(() => onBell?.());
