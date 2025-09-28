@@ -6,7 +6,7 @@
 	let parent = $state<HTMLElement>();
 
 	let {
-		terminal = $bindable<Terminal>(),
+		terminal = $bindable<Terminal | undefined>(),
 		options,
 		onBell,
 		onBinary,

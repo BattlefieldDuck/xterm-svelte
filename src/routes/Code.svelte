@@ -6,9 +6,9 @@
 		Terminal
 	} from '@battlefieldduck/xterm-svelte';
 
-	let terminal: Terminal;
+	let terminal = $state<Terminal>();
 
-	let options: ITerminalOptions & ITerminalInitOnlyOptions = {
+	const options: ITerminalOptions & ITerminalInitOnlyOptions = {
 		fontFamily: 'Consolas'
 	};
 
@@ -17,10 +17,10 @@
 
 		// FitAddon Usage
 		const fitAddon = new (await XtermAddon.FitAddon()).FitAddon();
-		terminal.loadAddon(fitAddon);
+		terminal?.loadAddon(fitAddon);
 		fitAddon.fit();
 
-		terminal.write('Hello World');
+		terminal?.write('Hello World');
 	}
 
 	function onData(data: string) {

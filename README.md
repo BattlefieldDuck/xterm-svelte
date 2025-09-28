@@ -57,9 +57,9 @@ Here's a basic example of how to use xterm-svelte in your SvelteKit application:
 		Terminal
 	} from '@battlefieldduck/xterm-svelte';
 
-	let terminal: Terminal;
+	let terminal = $state<Terminal>();
 
-	let options: ITerminalOptions & ITerminalInitOnlyOptions = {
+	const options: ITerminalOptions & ITerminalInitOnlyOptions = {
 		fontFamily: 'Consolas'
 	};
 
@@ -68,10 +68,10 @@ Here's a basic example of how to use xterm-svelte in your SvelteKit application:
 
 		// FitAddon Usage
 		const fitAddon = new (await XtermAddon.FitAddon()).FitAddon();
-		terminal.loadAddon(fitAddon);
+		terminal?.loadAddon(fitAddon);
 		fitAddon.fit();
 
-		terminal.write('Hello World');
+		terminal?.write('Hello World');
 	}
 
 	function onData(data: string) {
@@ -92,14 +92,10 @@ Here's a basic example of how to use xterm-svelte in your SvelteKit application:
 
 The `onLoad()` function fires when the xterm terminal is first initialized. You can use this function to perform actions such as initializing xterm addons.
 
-### Why is the `terminal` undefined?
-
-One possible cause is that you called the `terminal` function before it was initialized. For example, if you run the `terminal` function in the `onMount` function without wrapping it with `if (terminal !== undefined)`, it can lead to this issue.
-
 ## Real-world uses
-
-- [Thymis](https://thymis.io): Thymis is an open-source project that aims to provide a seamless and secure IoT device management solution.
-  With Thymis, users can easily configure and manage their devices running on the NixOS operating system.
+- [Bitor](https://github.com/bitorscanner/Bitor): Bitor Scanning Software
+- [Asm editor](https://github.com/Specy/asm-editor): A modern webapp to write, run and learn M68K, MIPS, RISC-V, X86 assembly
+- [Sylve](https://github.com/AlchemillaHQ/Sylve): Lightweight GUI for managing Bhyve, Jails, ZFS, networking, and more on FreeBSD
 - [And much more...](https://github.com/BattlefieldDuck/xterm-svelte/network/dependents)
 
 ## Contributing
