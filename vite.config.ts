@@ -1,14 +1,10 @@
+import devtoolsJson from 'vite-plugin-devtools-json';
 import { sveltekit } from '@sveltejs/kit/vite';
-import { defineConfig } from 'vitest/config';
+import { defineConfig } from 'vite';
 
 export default defineConfig({
-	plugins: [sveltekit()],
-	test: {
-		include: ['src/**/*.{test,spec}.{js,ts}']
-	},
-	server: {
-		fs: {
-			allow: ['package.json']
-		}
+	plugins: [sveltekit(), devtoolsJson()],
+	define: {
+		__APP_VERSION__: JSON.stringify(process.env.npm_package_version)
 	}
 });

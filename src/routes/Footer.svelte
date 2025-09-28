@@ -1,12 +1,12 @@
 <script lang="ts">
-	import { version } from '../../package.json';
+	const version: string = __APP_VERSION__;
 </script>
 
 <footer class="bg-white dark:bg-gray-900">
 	<div class="mx-auto container">
 		<div class="px-4 py-6 md:flex md:items-center md:justify-between">
 			<span class="text-sm text-gray-500 dark:text-gray-300 sm:text-center"
-				>© 2024 <a href="/">xterm-svelte</a>. All Rights Reserved. Current version: {version}
+				>© 2025 <a href="/">xterm-svelte</a>. All Rights Reserved. Current version: {version}
 			</span>
 			<div class="flex mt-4 sm:justify-center md:mt-0 space-x-5 rtl:space-x-reverse">
 				<a

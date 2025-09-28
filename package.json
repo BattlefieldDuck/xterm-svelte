@@ -2,13 +2,6 @@
 	"name": "@battlefieldduck/xterm-svelte",
 	"version": "2.1.1",
 	"description": "A SvelteKit wrapper for Xterm.js, enabling terminal embedding in SvelteKit apps, managing Xterm addons, and providing seamless updates with the latest SvelteKit and Xterm.js versions.",
-	"keywords": [
-		"svelte",
-		"xterm",
-		"xterm-js",
-		"sveltekit",
-		"xterm-svelte"
-	],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/BattlefieldDuck/xterm-svelte.git"
@@ -20,57 +13,67 @@
 	"license": "MIT",
 	"scripts": {
 		"dev": "vite dev",
-		"build": "vite build && npm run package",
+		"build": "vite build && npm run prepack",
 		"preview": "vite preview",
-		"package": "svelte-kit sync && svelte-package && publint",
-		"prepublishOnly": "npm run package",
-		"test": "npm run test:integration && npm run test:unit",
+		"prepare": "svelte-kit sync || echo ''",
+		"prepack": "svelte-kit sync && svelte-package && publint",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write .",
-		"test:integration": "playwright test",
-		"test:unit": "vitest"
-	},
-	"exports": {
-		".": {
-			"types": "./dist/index.d.ts",
-			"svelte": "./dist/index.js"
-		}
+		"lint": "prettier --check . && eslint .",
+		"test:e2e": "playwright test",
+		"test": "npm run test:e2e"
 	},
 	"files": [
 		"dist",
 		"!dist/**/*.test.*",
 		"!dist/**/*.spec.*"
 	],
+	"sideEffects": [
+		"**/*.css"
+	],
+	"svelte": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"type": "module",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"svelte": "./dist/index.js"
+		}
+	},
 	"peerDependencies": {
 		"svelte": "^5.0.0"
 	},
 	"devDependencies": {
-		"@playwright/test": "^1.28.1",
-		"@sveltejs/adapter-auto": "^3.0.0",
-		"@sveltejs/kit": "^2.5.27",
+		"@eslint/compat": "^1.2.5",
+		"@eslint/js": "^9.22.0",
+		"@playwright/test": "^1.49.1",
+		"@sveltejs/adapter-auto": "^6.0.0",
+		"@sveltejs/kit": "^2.22.0",
 		"@sveltejs/package": "^2.0.0",
-		"@sveltejs/vite-plugin-svelte": "^6.2.1",
-		"@types/eslint": "^8.56.0",
-		"@typescript-eslint/eslint-plugin": "^7.7.1",
-		"@typescript-eslint/parser": "^7.7.1",
-		"eslint": "^8.56.0",
-		"eslint-config-prettier": "^9.1.0",
-		"eslint-plugin-svelte": "^3.12.4",
-		"prettier": "^3.1.1",
-		"prettier-plugin-svelte": "^3.2.6",
-		"publint": "^0.3.13",
+		"@sveltejs/vite-plugin-svelte": "^6.0.0",
+		"@types/node": "^22",
+		"eslint": "^9.22.0",
+		"eslint-config-prettier": "^10.0.1",
+		"eslint-plugin-svelte": "^3.0.0",
+		"globals": "^16.0.0",
+		"prettier": "^3.4.2",
+		"prettier-plugin-svelte": "^3.3.3",
+		"publint": "^0.3.2",
 		"svelte": "^5.0.0",
 		"svelte-check": "^4.0.0",
-		"tslib": "^2.4.1",
-		"typescript": "^5.5.0",
-		"vite": "^7.1.7",
-		"vitest": "^3.2.4"
+		"typescript": "^5.0.0",
+		"typescript-eslint": "^8.20.0",
+		"vite": "^7.0.4",
+		"vite-plugin-devtools-json": "^1.0.0"
 	},
-	"svelte": "./dist/index.js",
-	"types": "./dist/index.d.ts",
-	"type": "module",
+	"keywords": [
+		"svelte",
+		"xterm",
+		"xterm-js",
+		"sveltekit",
+		"xterm-svelte"
+	],
 	"dependencies": {
 		"@xterm/addon-attach": "^0.11.0",
 		"@xterm/addon-canvas": "^0.7.0",
