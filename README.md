@@ -99,16 +99,19 @@ One possible cause is that you called the `terminal` function before it was init
 ## Real-world uses
 
 - [Thymis](https://thymis.io): Thymis is an open-source project that aims to provide a seamless and secure IoT device management solution.
-With Thymis, users can easily configure and manage their devices running on the NixOS operating system.
+  With Thymis, users can easily configure and manage their devices running on the NixOS operating system.
 - [And much more...](https://github.com/BattlefieldDuck/xterm-svelte/network/dependents)
 
 ## Contributing
+
 Contributions are welcome! Please feel free to submit pull requests or open issues.
 
 ![https://github.com/BattlefieldDuck/xterm-svelte/graphs/contributors](https://contrib.rocks/image?repo=BattlefieldDuck/xterm-svelte)
 
 ## License
+
 xterm-svelte is licensed under the MIT License. See the `LICENSE` file for more details.
 
 ## Stargazers over time
+
 [![Stargazers over time](https://starchart.cc/BattlefieldDuck/xterm-svelte.svg?variant=adaptive)](https://starchart.cc/BattlefieldDuck/xterm-svelte)
