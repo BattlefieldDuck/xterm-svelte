@@ -5,11 +5,30 @@
 
 version: 2
 updates:
-  - package-ecosystem: 'npm'
-    directory: '/'
+  - package-ecosystem: "github-actions"
+    directory: "/"
     schedule:
-      interval: 'monthly'
-  - package-ecosystem: 'github-actions'
-    directory: '/'
+      interval: "monthly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 5
+    labels: ["deps", "automated"]
+    groups:
+      actions-minor-and-patch:
+        update-types: ["minor", "patch"]
+      actions-majors:
+        update-types: ["major"]
+
+  - package-ecosystem: "npm"
+    directory: "/"
     schedule:
-      interval: 'monthly'
+      interval: "monthly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 5
+    labels: ["deps", "automated"]
+    groups:
+      npm-minor-and-patch:
+        update-types: ["minor", "patch"]
+      npm-majors:
+        update-types: ["major"]
