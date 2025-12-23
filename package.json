@@ -1,6 +1,6 @@
 {
 	"name": "@battlefieldduck/xterm-svelte",
-	"version": "2.1.1",
+	"version": "2.2.0",
 	"description": "A SvelteKit wrapper for Xterm.js, enabling terminal embedding in SvelteKit apps, managing Xterm addons, and providing seamless updates with the latest SvelteKit and Xterm.js versions.",
 	"repository": {
 		"type": "git",
@@ -51,10 +51,10 @@
 		"@sveltejs/adapter-auto": "^7.0.0",
 		"@sveltejs/kit": "^2.49.2",
 		"@sveltejs/package": "^2.5.7",
-		"@sveltejs/vite-plugin-svelte": "^6.0.0",
-		"@types/node": "^25",
+		"@sveltejs/vite-plugin-svelte": "^6.2.1",
+		"@types/node": "^25.0.3",
 		"eslint": "^9.39.2",
-		"eslint-config-prettier": "^10.0.1",
+		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-svelte": "^3.13.1",
 		"globals": "^16.5.0",
 		"prettier": "^3.7.4",
@@ -63,7 +63,7 @@
 		"svelte": "^5.46.0",
 		"svelte-check": "^4.3.5",
 		"typescript": "^5.9.3",
-		"typescript-eslint": "^8.50.0",
+		"typescript-eslint": "^8.50.1",
 		"vite": "^7.3.0",
 		"vite-plugin-devtools-json": "^1.0.0"
 	},
@@ -75,16 +75,16 @@
 		"xterm-svelte"
 	],
 	"dependencies": {
-		"@xterm/addon-attach": "^0.11.0",
-		"@xterm/addon-canvas": "^0.7.0",
-		"@xterm/addon-clipboard": "^0.1.0",
-		"@xterm/addon-fit": "^0.10.0",
-		"@xterm/addon-image": "^0.8.0",
-		"@xterm/addon-search": "^0.15.0",
-		"@xterm/addon-serialize": "^0.13.0",
-		"@xterm/addon-unicode11": "^0.8.0",
-		"@xterm/addon-web-links": "^0.11.0",
-		"@xterm/addon-webgl": "^0.18.0",
-		"@xterm/xterm": "^5.5.0"
+		"@xterm/addon-attach": "^0.12.0",
+		"@xterm/addon-clipboard": "^0.2.0",
+		"@xterm/addon-fit": "^0.11.0",
+		"@xterm/addon-image": "^0.9.0",
+		"@xterm/addon-progress": "^0.2.0",
+		"@xterm/addon-search": "^0.16.0",
+		"@xterm/addon-serialize": "^0.14.0",
+		"@xterm/addon-unicode11": "^0.9.0",
+		"@xterm/addon-web-links": "^0.12.0",
+		"@xterm/addon-webgl": "^0.19.0",
+		"@xterm/xterm": "^6.0.0"
 	}
 }

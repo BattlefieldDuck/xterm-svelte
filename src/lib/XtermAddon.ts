@@ -9,13 +9,6 @@ export class XtermAddon {
 	static AttachAddon = async () => await import('@xterm/addon-attach');
 
 	/**
-	 * Dynamically imports the 'canvas' addon from `@xterm/addon-canvas`.
-	 * For more details, visit: https://github.com/xtermjs/xterm.js/tree/master/addons/addon-canvas
-	 * @returns A promise that resolves to the 'canvas' addon module.
-	 */
-	static CanvasAddon = async () => await import('@xterm/addon-canvas');
-
-	/**
 	 * Dynamically imports the 'clipboard' addon from `@xterm/addon-clipboard`.
 	 * @returns A promise that resolves to the 'clipboard' addon module.
 	 */
@@ -49,6 +42,12 @@ export class XtermAddon {
 
 	//     return await import('@xterm/addon-ligatures');
 	// }
+
+	/**
+	 * Dynamically imports the 'progress' addon from `@xterm/addon-progress`.
+	 * @returns A promise that resolves to the 'progress' addon module.
+	 */
+	static ProgressAddon = async () => await import('@xterm/addon-progress');
 
 	/**
 	 * Dynamically imports the 'search' addon from `@xterm/addon-search`.
