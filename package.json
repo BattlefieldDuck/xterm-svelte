@@ -1,6 +1,6 @@
 {
 	"name": "@battlefieldduck/xterm-svelte",
-	"version": "2.3.0",
+	"version": "2.3.1",
 	"description": "A SvelteKit wrapper for Xterm.js, enabling terminal embedding in SvelteKit apps, managing Xterm addons, and providing seamless updates with the latest SvelteKit and Xterm.js versions.",
 	"repository": {
 		"type": "git",
@@ -45,27 +45,26 @@
 		"svelte": "^5.55.7"
 	},
 	"devDependencies": {
-		"@eslint/compat": "^2.0.3",
+		"@eslint/compat": "^2.1.0",
 		"@eslint/js": "^10.0.1",
-		"@playwright/test": "^1.58.2",
+		"@playwright/test": "^1.60.0",
 		"@sveltejs/adapter-auto": "^7.0.1",
-		"@sveltejs/kit": "^2.55.0",
+		"@sveltejs/kit": "^2.60.1",
 		"@sveltejs/package": "^2.5.7",
-		"@sveltejs/vite-plugin-svelte": "^6.2.4",
+		"@sveltejs/vite-plugin-svelte": "^7.1.2",
 		"@types/node": "^25.5.0",
 		"eslint": "^10.1.0",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-svelte": "^3.16.0",
-		"globals": "^17.4.0",
-		"prettier": "^3.8.1",
-		"prettier-plugin-svelte": "^3.5.1",
-		"publint": "^0.3.18",
+		"globals": "^17.6.0",
+		"prettier": "^3.8.3",
+		"prettier-plugin-svelte": "^3.5.2",
+		"publint": "^0.3.21",
 		"svelte": "^5.55.7",
-		"svelte-check": "^4.4.5",
-		"typescript": "^5.9.3",
-		"typescript-eslint": "^8.57.1",
-		"vite": "^7.3.2",
-		"vite-plugin-devtools-json": "^1.0.0"
+		"svelte-check": "^4.4.8",
+		"typescript": "^6.0.3",
+		"typescript-eslint": "^8.59.3",
+		"vite": "^8.0.13"
 	},
 	"keywords": [
 		"svelte",
