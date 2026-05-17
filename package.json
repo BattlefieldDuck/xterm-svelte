@@ -42,7 +42,7 @@
 		}
 	},
 	"peerDependencies": {
-		"svelte": "^5.54.1"
+		"svelte": "^5.55.7"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^2.0.3",
@@ -60,7 +60,7 @@
 		"prettier": "^3.8.1",
 		"prettier-plugin-svelte": "^3.5.1",
 		"publint": "^0.3.18",
-		"svelte": "^5.54.1",
+		"svelte": "^5.55.7",
 		"svelte-check": "^4.4.5",
 		"typescript": "^5.9.3",
 		"typescript-eslint": "^8.57.1",
