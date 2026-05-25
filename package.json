@@ -42,17 +42,17 @@
 		}
 	},
 	"peerDependencies": {
-		"svelte": "^5.55.7"
+		"svelte": "^5.55.9"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^2.1.0",
 		"@eslint/js": "^10.0.1",
 		"@playwright/test": "^1.60.0",
 		"@sveltejs/adapter-auto": "^7.0.1",
-		"@sveltejs/kit": "^2.60.1",
+		"@sveltejs/kit": "^2.61.1",
 		"@sveltejs/package": "^2.5.7",
 		"@sveltejs/vite-plugin-svelte": "^7.1.2",
-		"@types/node": "^25.9.0",
+		"@types/node": "^25.9.1",
 		"eslint": "^10.1.0",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-svelte": "^3.16.0",
@@ -60,11 +60,11 @@
 		"prettier": "^3.8.3",
 		"prettier-plugin-svelte": "^3.5.2",
 		"publint": "^0.3.21",
-		"svelte": "^5.55.7",
+		"svelte": "^5.55.9",
 		"svelte-check": "^4.4.8",
 		"typescript": "^6.0.3",
-		"typescript-eslint": "^8.59.3",
-		"vite": "^8.0.13"
+		"typescript-eslint": "^8.59.4",
+		"vite": "^8.0.14"
 	},
 	"keywords": [
 		"svelte",
